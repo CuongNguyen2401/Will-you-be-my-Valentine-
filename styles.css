@@ -43,9 +43,128 @@ body {
     cursor: pointer;
   }
   
-  .gif_container img {
+  .gif_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .gif_container > img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-top: 20px;
+  }
+
+  .cry-gif-wrapper {
+    position: fixed;
+    z-index: 999;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    pointer-events: none;
+    animation: popIn 0.4s ease-out;
+  }
+
+  .cry-gif-wrapper img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .cry-label {
+    margin-top: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #d32f2f;
+    cursor: pointer;
+  }
+
+  @keyframes popIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    70% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Responsive Design - Tablet */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+      padding: 0 15px;
+    }
+
+    .yes-button, .no-button {
+      font-size: 1.2em;
+      padding: 8px 16px;
+      margin: 5px;
+    }
+
+    .gif_container > img {
+      max-width: 80%;
+    }
+
+    .cry-gif-wrapper img {
+      width: 150px;
+    }
+
+    .cry-label {
+      font-size: 0.9em;
+    }
+  }
+
+  /* Responsive Design - Mobile */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      padding: 0 10px;
+    }
+
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .yes-button, .no-button {
+      font-size: 1em;
+      padding: 8px 15px;
+      margin: 0;
+      width: 90%;
+      max-width: 200px;
+      box-sizing: border-box;
+    }
+
+    .gif_container > img {
+      max-width: 90%;
+    }
+
+    .cry-gif-wrapper img {
+      width: 100px;
+    }
+
+    .cry-label {
+      font-size: 0.8em;
+    }
   }
